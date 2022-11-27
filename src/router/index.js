@@ -36,13 +36,11 @@ export const constantRoutes = [
     component: () => import('@/views/login/index'),
     hidden: true
   },
-
   {
     path: '/404',
     component: () => import('@/views/404'),
     hidden: true
   },
-
   {
     path: '/',
     component: Layout,
@@ -53,6 +51,25 @@ export const constantRoutes = [
       component: () => import('@/views/dashboard/index'),
       meta: { title: 'Dashboard', icon: 'dashboard' }
     }]
+  },
+  {
+    path: '/memberinfo',
+    component: Layout,
+    redirect: '/memberinfo/index',
+    children: [
+      {
+        path: 'memberinfo',
+        name: 'MemberInfo',
+        component: () => import('@/views/memberinfo/index'),
+        meta: { title: '會員資料查詢', icon: 'table' }
+      },
+      {
+        path: 'cashinfo',
+        name: 'CashInfo',
+        component: () => import('@/views/cashinfo/index'),
+        meta: { title: '案件管理', icon: 'table' }
+      }
+    ]
   },
 
   {
